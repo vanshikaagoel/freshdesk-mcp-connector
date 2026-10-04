@@ -1,0 +1,43 @@
+{
+  "name": "freshdesk-mcp-connector",
+  "version": "1.0.0",
+  "description": "Read-only MCP connector that lets an AI agent list, get, and search Freshdesk tickets.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "freshdesk-mcp-connector": "dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "start:mock": "node dist/index.js --mock",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "export-spec": "tsx scripts/export-tool-spec.ts",
+    "inspect": "npx @modelcontextprotocol/inspector@1 node dist/index.js --mock",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "freshdesk",
+    "connector",
+    "agent"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.0",
+    "dotenv": "^18.0.5",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
